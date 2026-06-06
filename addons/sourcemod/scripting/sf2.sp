@@ -377,9 +377,6 @@ static int g_NewBossRoundCount = 1;
 bool g_PlayerPlayedNewBossRound[MAXTF2PLAYERS] = { true, ... };
 static char g_NewBossRoundProfileRoundProfile[64] = "";
 
-static Handle g_RoundMessagesTimer = null;
-static int g_RoundMessagesNum = 0;
-
 static Handle g_BossCountUpdateTimer = null;
 Handle g_ClientAverageUpdateTimer = null;
 
@@ -989,8 +986,6 @@ static void StartPlugin()
 	g_RoundEndCount = 0;
 	g_RoundActiveCount = 0;
 	g_RoundState = SF2RoundState_Invalid;
-	g_RoundMessagesTimer = CreateTimer(200.0, Timer_RoundMessages, _, TIMER_REPEAT | TIMER_FLAG_NO_MAPCHANGE);
-	g_RoundMessagesNum = 0;
 
 	g_RoundWarmupRoundCount = 0;
 
@@ -2090,43 +2085,6 @@ static Action Timer_BossCountUpdate(Handle timer)
 			}
 		}
 	}
-	return Plugin_Continue;
-}
-
-static Action Timer_RoundMessages(Handle timer)
-{
-	if (!g_Enabled)
-	{
-		return Plugin_Stop;
-	}
-
-	if (timer != g_RoundMessagesTimer)
-	{
-		return Plugin_Stop;
-	}
-
-	switch (g_RoundMessagesNum)
-	{
-		case 0:
-		{
-			CPrintToChatAll("{royalblue}== {violet}Slender Fortress{royalblue} coded by {hotpink}KitRifty & Kenzzer{royalblue}==\n== Modified by {deeppink}Mentrillum & The Gaben{royalblue}, current version {violet}%s{royalblue}==", PLUGIN_VERSION_DISPLAY);
-		}
-		case 1:
-		{
-			CPrintToChatAll("%t", "SF2 Ad Message 1");
-		}
-		case 2:
-		{
-			CPrintToChatAll("%t", "SF2 Ad Message 2");
-		}
-	}
-
-	g_RoundMessagesNum++;
-	if (g_RoundMessagesNum > 2)
-	{
-		g_RoundMessagesNum = 0;
-	}
-
 	return Plugin_Continue;
 }
 

@@ -356,16 +356,6 @@
 		"ko"	"명령어 모음"
 	}
 
-	"SF2 Help Commands Description"
-	{
-		"en"	"!slender - Displays the main menu.\n!slnext - Displays a list of players showing who's next.\n!slghost - Displays the Ghost Mode menu.\n!slhelp - Shows the Help menu.\n!slcredits - Shows the awesome guys who helped with this mod."
-		"ru"	"!slender - Показать главное меню.\n!slnext - Показать следующих игроков в очереди.\n!slghost - Показать меню режима призрака.\n!slhelp - Показать меню помощи.\n!slcredits - Показать тех замечательных людей, кто помог с этим модом."
-		"fi"	"!slender - Näyttää päävalikon.\n!slnext - Näyttää listan seuraavista pelaajista.\n!slghost - Näyttää Haamu Tilan valikon.\n!slhelp - Näyttää ohjevalikon.\n!slcredits - Näyttää mahtavat henkilöt jotka auttoivat tämän pelimuodon kanssa."
-		"chi"	"!slender - 显示主菜单。\n!slnext - 显示列表谁是下一个玩家。\n!slghost - 显示幽灵模式菜单。\n!slhelp - 显示帮助菜单。\n!slcredits - 显示帮助制作此mod的人。"
-		"pt"	"!slender — exibe o menu principal.\n!slnext — exibe a fila de espera de quem vai jogar.\n!slghost — exibe o menu do modo fantasma.\n!slhelp — exibe o menu de ajuda.\n!slcredits — exibe os nomes de quem ajudou a desenvolver este modo."
-		"ko"	"!slender - 게임모드의 메인메뉴를 보여줍니다.\n!slnext - 현재 대기열을 보여줍니다.\n!slghost - 유령 모드가 됩니다.\n!slhelp - 도움말을 보여줍니다.\n!slcredits - 어떤 개쩌는 녀셕들이 이 게임모드에 도움을 줬는지 알려줍니다."
-	}
-
 	"SF2 Help Ghost Mode Menu Title"
 	{
 		"en"	"What is Ghost Mode?"
@@ -761,25 +751,6 @@
 	{
 		"#format"		"{1:d}"
 		"en" 	"{lightblue}Flashlight temperature set to {1}k kelvin."
-	}
-
-	"SF2 Ad Message 1"
-	{
-		"en"	"{dodgerblue}Slender Fortress Modified official Discord server: {lightblue}https://discord.gg/7Zz7RYTCC4{default}"
-		"ru"	"{dodgerblue}Официальный Discord сервер Slender Fortress Modified: {lightblue}https://discord.gg/7Zz7RYTCC4{default}"
-		"chi"	"{dodgerblue}Slender Fortress Modified官方Discord服务器：{lightblue}https://discord.gg/7Zz7RYTCC4{default}"
-		"pt"	"{dodgerblue}Servidor oficial do Slender Fortress Modified no Discord: {lightblue}https://discord.gg/7Zz7RYTCC4{default}"
-		"ko"	"{dodgerblue}슬렌더 포트리스 모디파이드 공식 디스코드 서버: {lightblue}https://discord.gg/7Zz7RYTCC4{default}"
-	}
-
-	"SF2 Ad Message 2"
-	{
-		"en"	"{dodgerblue}New to this gamemode? Type {lightblue}!slender{dodgerblue} in chat to open the main menu."
-		"ru"	"{dodgerblue}Незнакомы с режимом? Напишите {lightblue}!slender{dodgerblue} в чате, чтобы открыть главное меню."
-		"fi"	"{dodgerblue}Uusi tähän pelitilaan? Kirjoita {lightblue}!slender{dodgerblue} chattiin avataksesi päävalikon."
-		"chi"	"{dodgerblue}新玩这个模式？在聊天键入{lightblue}!slender{dodgerblue}来打开主菜单。"
-		"pt"	"{dodgerblue}Não sabe como este modo funciona? Digite {lightblue}!slender{dodgerblue} na janela de conversa para abrir o menu principal."
-		"ko"	"{dodgerblue}이 게임모드가 처음 이신가요? {lightblue}!slender{dodgerblue}를 채팅에 입력하여 메인 메뉴를 확인하세요."
 	}
 
 	"SF2 Welcome Message"
@@ -2185,16 +2156,6 @@
 		"en"	"{lightblue}View bobbing is now disabled."
 		"pt"	"{lightblue}Agora, a arma não balança ao andar."
 		"ko"	"{lightblue}시야 기울어짐이 비활성화되었습니다."
-	}
-
-	"SF2 Recent Changes"
-	{
-		"en"	"Recent Changes:"
-		"ru"	"Недавние изменения:"
-		"fi"	"Viimeaikaiset muutokset:"
-		"chi"	"最近改动："
-		"pt"	"Alterações recentes:"
-		"ko"	"최근 변경 사항:"
 	}
 
 	"SF2 Smite player"
