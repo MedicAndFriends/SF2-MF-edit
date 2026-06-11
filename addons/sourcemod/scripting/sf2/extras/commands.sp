@@ -634,6 +634,17 @@ static Action Command_MenuViewBob(int client, int args)
 	return Plugin_Handled;
 }
 
+static Action Command_Credits(int client, int args)
+{
+	if (!g_Enabled)
+	{
+		return Plugin_Continue;
+	}
+
+	g_MenuCredits.Display(client, MENU_TIME_FOREVER);
+	return Plugin_Handled;
+}
+
 static Action Command_BossList(int client, int args)
 {
 	if (!g_Enabled)

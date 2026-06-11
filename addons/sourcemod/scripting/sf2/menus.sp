@@ -19,6 +19,12 @@ Menu g_MenuHelpClassInfo;
 Menu g_MenuHelpGhostMode;
 Menu g_MenuSettings;
 Menu g_MenuSettingsFlashlightTemp1;
+Menu g_MenuCredits;
+Menu g_MenuCredits1;
+Menu g_MenuCredits2;
+Menu g_MenuCredits3;
+Menu g_MenuCredits4;
+Menu g_MenuCredits5;
 
 static ArrayList g_Voters;
 static bool g_IsRunOff;
@@ -48,6 +54,8 @@ void SetupMenus()
 	g_MenuMain.AddItem("0", buffer);
 	FormatEx(buffer, sizeof(buffer), "%t (!slsettings)", "SF2 Settings Menu Title");
 	g_MenuMain.AddItem("0", buffer);
+	strcopy(buffer, sizeof(buffer), "Credits (!slcredits)");
+	g_MenuMain.AddItem("0", buffer);
 	FormatEx(buffer, sizeof(buffer), "%t (!slbosslist)", "SF2 Boss View On List Title");
 	g_MenuMain.AddItem("0", buffer);
 
@@ -75,6 +83,10 @@ void SetupMenus()
 	g_MenuHelpObjective2 = new Menu(Menu_HelpObjective2);
 	g_MenuHelpObjective2.SetTitle("%t %t\n \n%t\n \n", "SF2 Prefix", "SF2 Help Objective Menu Title", "SF2 Help Objective Description 2");
 	g_MenuHelpObjective2.AddItem("0", "Back");
+
+	g_MenuHelpCommands = new Menu(Menu_BackButtonOnly);
+	g_MenuHelpCommands.SetTitle("%t %t\n \n%t\n \n", "SF2 Prefix", "SF2 Help Commands Menu Title", "SF2 Help Commands Description");
+	g_MenuHelpCommands.AddItem("0", "Back");
 
 	g_MenuHelpGhostMode = new Menu(Menu_BackButtonOnly);
 	g_MenuHelpGhostMode.SetTitle("%t %t\n \n%t\n \n", "SF2 Prefix", "SF2 Help Ghost Mode Menu Title", "SF2 Help Ghost Mode Description");
@@ -154,6 +166,102 @@ void SetupMenus()
 	g_MenuSettingsFlashlightTemp1.AddItem("8", "9k Kelvin");
 	g_MenuSettingsFlashlightTemp1.AddItem("9", "10k Kelvin");
 	g_MenuSettingsFlashlightTemp1.ExitBackButton = true;
+
+	g_MenuCredits = new Menu(Menu_Credits);
+
+	FormatEx(buffer, sizeof(buffer), "%t Credits\n \n", "SF2 Prefix");
+	StrCat(buffer, sizeof(buffer), "Coders: KitRifty, Kenzzer, Mentrillum, The Gaben\n");
+	StrCat(buffer, sizeof(buffer), "Mark J. Hadley - The creator of the Slender game\n");
+	StrCat(buffer, sizeof(buffer), "Mark Steen - Compositing the intro music\n");
+	StrCat(buffer, sizeof(buffer), "Toby Fox - Compositing The World Revolving\n");
+	StrCat(buffer, sizeof(buffer), "Mammoth Mogul - For being a GREAT test subject\n");
+	StrCat(buffer, sizeof(buffer), "Egosins - For offering to host this publicly\n");
+
+	g_MenuCredits.SetTitle(buffer);
+	g_MenuCredits.AddItem("0", "Next");
+	g_MenuCredits.AddItem("1", "Back");
+
+	g_MenuCredits1 = new Menu(Menu_Credits1);
+
+	FormatEx(buffer, sizeof(buffer), "%t Credits\n \n", "SF2 Prefix");
+	StrCat(buffer, sizeof(buffer), "Glubbable - For working on a ton of maps\n");
+	StrCat(buffer, sizeof(buffer), "Somberguy - Suggestions and support\n");
+	StrCat(buffer, sizeof(buffer), "Omi-Box - Materials, maps, current Slender Man model, and more\n");
+	StrCat(buffer, sizeof(buffer), "Narry Gewman - Imported first Slender Man model\n");
+	StrCat(buffer, sizeof(buffer), "Simply Delicious - For the awesome camera overlay\n");
+	StrCat(buffer, sizeof(buffer), "Jason278 - Page models");
+	StrCat(buffer, sizeof(buffer), "Dj-Rec0il - Running In the 90s Remix composer\n");
+
+	g_MenuCredits1.SetTitle(buffer);
+	g_MenuCredits1.AddItem("0", "Next");
+	g_MenuCredits1.AddItem("1", "Back");
+
+	g_MenuCredits2 = new Menu(Menu_Credits2);
+
+	FormatEx(buffer, sizeof(buffer), "%t Credits\n \n", "SF2 Prefix");
+	StrCat(buffer, sizeof(buffer), "To all the peeps who alpha-tested this thing!\n \n");
+	StrCat(buffer, sizeof(buffer), "Tofu\n");
+	StrCat(buffer, sizeof(buffer), "Ace-Dashie\n");
+	StrCat(buffer, sizeof(buffer), "Hobbes\n");
+	StrCat(buffer, sizeof(buffer), "Diskein\n");
+	StrCat(buffer, sizeof(buffer), "111112oo\n");
+	StrCat(buffer, sizeof(buffer), "Incoheriant Chipmunk\n");
+	StrCat(buffer, sizeof(buffer), "Shrow\n");
+	StrCat(buffer, sizeof(buffer), "Liquid Vita\n");
+	StrCat(buffer, sizeof(buffer), "Pinkle D Lies\n");
+	StrCat(buffer, sizeof(buffer), "Ultimatefry\n \n");
+
+	g_MenuCredits2.SetTitle(buffer);
+	g_MenuCredits2.AddItem("0", "Next");
+	g_MenuCredits2.AddItem("1", "Back");
+
+	g_MenuCredits3 = new Menu(Menu_Credits3);
+
+	FormatEx(buffer, sizeof(buffer), "%t Credits\n \n", "SF2 Prefix");
+	StrCat(buffer, sizeof(buffer), "Credits to all peeps who gave special round suggestions!\n \n");
+	StrCat(buffer, sizeof(buffer), "TehPlayer14\n");
+	StrCat(buffer, sizeof(buffer), "SirAnthony\n");
+	StrCat(buffer, sizeof(buffer), "DelcsXCritical\n");
+	StrCat(buffer, sizeof(buffer), "Gardevoid\n");
+	StrCat(buffer, sizeof(buffer), "Eile Mizer\n");
+	StrCat(buffer, sizeof(buffer), "DeadlyCreature\n");
+	StrCat(buffer, sizeof(buffer), "Average\n");
+	StrCat(buffer, sizeof(buffer), "FireHue\n");
+	StrCat(buffer, sizeof(buffer), "Spooky Pyro\n");
+	StrCat(buffer, sizeof(buffer), "Firedudeet\n \n");
+
+	g_MenuCredits3.SetTitle(buffer);
+	g_MenuCredits3.AddItem("0", "Next");
+	g_MenuCredits3.AddItem("1", "Back");
+
+	g_MenuCredits4 = new Menu(Menu_Credits4);
+
+	FormatEx(buffer, sizeof(buffer), "%t Credits\n \n", "SF2 Prefix");
+	StrCat(buffer, sizeof(buffer), "Major special thanks to all official Modified server owners!\n \n");
+	StrCat(buffer, sizeof(buffer), "Demon Hamster Eating My Wafflez\n");
+	StrCat(buffer, sizeof(buffer), "Munt\n");
+	StrCat(buffer, sizeof(buffer), "KanP\n");
+	StrCat(buffer, sizeof(buffer), "SAXY GIBUS MAN\n");
+	StrCat(buffer, sizeof(buffer), "Fire\n");
+
+	g_MenuCredits4.SetTitle(buffer);
+	g_MenuCredits4.AddItem("0", "Next");
+	g_MenuCredits4.AddItem("1", "Back");
+
+	g_MenuCredits5 = new Menu(Menu_Credits5);
+
+	FormatEx(buffer, sizeof(buffer), "%t Credits\n \n", "SF2 Prefix");
+	StrCat(buffer, sizeof(buffer), "And finally to all of these people that helped out this version one way or another!\n \n");
+	StrCat(buffer, sizeof(buffer), "KitRifty\n");
+	StrCat(buffer, sizeof(buffer), "Spook\n");
+	StrCat(buffer, sizeof(buffer), "Rorek\n");
+	StrCat(buffer, sizeof(buffer), "Chillax\n");
+	StrCat(buffer, sizeof(buffer), "Staff from Disc-FF (EllieDear, Arrow Skye, tocks, Pasta Stalin, etc)\n");
+	StrCat(buffer, sizeof(buffer), "Basically everyone at Disc-FF\n");
+	StrCat(buffer, sizeof(buffer), "And you for playing this new way of SF2!\n \n");
+
+	g_MenuCredits5.SetTitle(buffer);
+	g_MenuCredits5.AddItem("0", "Back");
 
 	PvP_SetupMenus();
 	PvE_SetupMenus();
@@ -368,6 +476,10 @@ static int Menu_Main(Menu menu, MenuAction action, int param1, int param2)
 				g_MenuSettings.Display(param1, 30);
 			}
 			case 7:
+			{
+				g_MenuCredits.Display(param1, MENU_TIME_FOREVER);
+			}
+			case 8:
 			{
 				DisplayBossList(param1);
 			}
@@ -941,6 +1053,25 @@ static int Menu_BackButtonOnly(Menu menu, MenuAction action, int param1, int par
 	return 0;
 }
 
+static int Menu_Credits(Menu menu, MenuAction action, int param1, int param2)
+{
+	if (action == MenuAction_Select)
+	{
+		switch (param2)
+		{
+			case 0:
+			{
+				g_MenuCredits1.Display(param1, MENU_TIME_FOREVER);
+			}
+			case 1:
+			{
+				g_MenuMain.Display(param1, 30);
+			}
+		}
+	}
+	return 0;
+}
+
 static int Menu_Credits1(Menu menu, MenuAction action, int param1, int param2)
 {
 	if (action == MenuAction_Select)
@@ -1499,6 +1630,78 @@ int Panel_SettingsViewBobbing(Menu menu, MenuAction action, int param1, int para
 		}
 
 		g_MenuSettings.Display(param1, 30);
+	}
+	return 0;
+}
+
+static int Menu_Credits2(Menu menu, MenuAction action, int param1, int param2)
+{
+	if (action == MenuAction_Select)
+	{
+		switch (param2)
+		{
+			case 0:
+			{
+				g_MenuCredits3.Display(param1, MENU_TIME_FOREVER);
+			}
+			case 1:
+			{
+				g_MenuCredits1.Display(param1, MENU_TIME_FOREVER);
+			}
+		}
+	}
+	return 0;
+}
+
+static int Menu_Credits3(Menu menu, MenuAction action, int param1, int param2)
+{
+	if (action == MenuAction_Select)
+	{
+		switch (param2)
+		{
+			case 0:
+			{
+				g_MenuCredits4.Display(param1, MENU_TIME_FOREVER);
+			}
+			case 1:
+			{
+				g_MenuCredits2.Display(param1, MENU_TIME_FOREVER);
+			}
+		}
+	}
+	return 0;
+}
+
+static int Menu_Credits4(Menu menu, MenuAction action, int param1, int param2)
+{
+	if (action == MenuAction_Select)
+	{
+		switch (param2)
+		{
+			case 0:
+			{
+				g_MenuCredits5.Display(param1, MENU_TIME_FOREVER);
+			}
+			case 1:
+			{
+				g_MenuCredits3.Display(param1, MENU_TIME_FOREVER);
+			}
+		}
+	}
+	return 0;
+}
+
+static int Menu_Credits5(Menu menu, MenuAction action, int param1, int param2)
+{
+	if (action == MenuAction_Select)
+	{
+		switch (param2)
+		{
+			case 0:
+			{
+				g_MenuCredits4.Display(param1, MENU_TIME_FOREVER);
+			}
+		}
 	}
 	return 0;
 }
