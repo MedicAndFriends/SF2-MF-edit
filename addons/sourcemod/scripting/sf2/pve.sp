@@ -819,7 +819,7 @@ static void SpawnPvEBoss(const char[] override = "")
 
 	int ent = -1;
 	char targetName[64];
-	while ((ent = FindEntityByClassname(ent, "logic_relay")) != -1)
+	while ((ent = FindEntityByClassname(ent, "logic_relay")) != -1) //ak to nenajde entitu tak to returne -1
 	{
 		GetEntPropString(ent, Prop_Data, "m_iName", targetName, sizeof(targetName));
 		if (targetName[0] != '\0' && strcmp(targetName, "boss_start", false) == 0)
@@ -832,7 +832,7 @@ static void SpawnPvEBoss(const char[] override = "")
 	ArrayList spawnPointList = new ArrayList();
 
 	ent = -1;
-	while ((ent = FindEntityByClassname(ent, "info_target")) != -1)
+	while ((ent = FindEntityByClassname(ent, "info_target")) != -1) //ak to nenajda entitu tak to returne -1
 	{
 		GetEntPropString(ent, Prop_Data, "m_iName", targetName, sizeof(targetName));
 		if (!StrContains(targetName, "minigames_boss_spawnpoint", false))
@@ -853,6 +853,7 @@ static void SpawnPvEBoss(const char[] override = "")
 		return;
 	}
 
+	g_HasBossSpawned = true;
 	g_IsPvEActive = true;
 	bool shouldDoCustom = false;
 	shouldDoCustom = g_CustomBosses.Length > 0 && GetRandomInt(0, 1) == 1;
