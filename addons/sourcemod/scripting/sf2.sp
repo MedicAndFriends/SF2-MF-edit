@@ -2109,7 +2109,7 @@ static Action Timer_RoundMessages(Handle timer)
 	{
 		case 0:
 		{
-			CPrintToChatAll("{royalblue}== {violet}Slender Fortress{royalblue} coded by {hotpink}KitRifty & Kenzzer{royalblue}==\n== Modified by {deeppink}Mentrillum & The Gaben{royalblue}, current version {violet}%s{royalblue}==", PLUGIN_VERSION_DISPLAY);
+			CPrintToChatAll("{royalblue}== {violet}Slender Fortress M&F edit{royalblue} edited by {orange}bruh.clippy , 80s & hsjw{royalblue}==\n== current version {violet}%s{royalblue}==", PLUGIN_VERSION_DISPLAY);
 		}
 		case 1:
 		{

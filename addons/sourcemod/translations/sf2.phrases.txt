@@ -765,11 +765,11 @@
 
 	"SF2 Ad Message 1"
 	{
-		"en"	"{dodgerblue}Slender Fortress Modified official Discord server: {lightblue}https://discord.gg/7Zz7RYTCC4{default}"
-		"ru"	"{dodgerblue}Официальный Discord сервер Slender Fortress Modified: {lightblue}https://discord.gg/7Zz7RYTCC4{default}"
-		"chi"	"{dodgerblue}Slender Fortress Modified官方Discord服务器：{lightblue}https://discord.gg/7Zz7RYTCC4{default}"
-		"pt"	"{dodgerblue}Servidor oficial do Slender Fortress Modified no Discord: {lightblue}https://discord.gg/7Zz7RYTCC4{default}"
-		"ko"	"{dodgerblue}슬렌더 포트리스 모디파이드 공식 디스코드 서버: {lightblue}https://discord.gg/7Zz7RYTCC4{default}"
+		"en"	"{dodgerblue}Medic and friends Discord server: {lightblue}https://discord.gg/TsQQUzEdp6{default}"
+		"ru"	"{dodgerblue}Medic and friends Discord server: {lightblue}https://discord.gg/TsQQUzEdp6{default}"
+		"chi"	"{dodgerblue}Medic and friends Discord server: {lightblue}https://discord.gg/TsQQUzEdp6{default}"
+		"pt"	"{dodgerblue}Medic and friends Discord server: {lightblue}https://discord.gg/TsQQUzEdp6{default}"
+		"ko"	"{dodgerblue}Medic and friends Discord server: {lightblue}https://discord.gg/TsQQUzEdp6{default}"
 	}
 
 	"SF2 Ad Message 2"
