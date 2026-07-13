@@ -174,7 +174,7 @@ void ClientSetGhostModeState(int client, bool state)
 			g_PlayerGhostModeConnectionBootTime[client] = -1.0;
 		}
 
-		SetEntityCollisionGroup(client, 1);
+		SetEntityCollisionGroup(client, 2);
 
 		PvP_OnClientGhostModeEnable(client);
 	}

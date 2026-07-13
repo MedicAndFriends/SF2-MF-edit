@@ -49,11 +49,11 @@ bool steamworks;
 
 public Plugin myinfo =
 {
-	name = "Slender Fortress Modified",
-	author = "KitRifty, Kenzzer, Mentrillum, The Gaben",
+	name = "Slender Fortress M&F Edit",
+	author = "Edited by bruh.clippy aka cerealcan, 80s & hsjw based on SF:M by Mentrillum",
 	description = "Based on the game Slender: The Eight Pages.",
 	version = PLUGIN_VERSION,
-	url = "https://discord.gg/7Zz7RYTCC4"
+	url = "https://discord.gg/TsQQUzEdp6"
 }
 
 enum struct MuteMode
