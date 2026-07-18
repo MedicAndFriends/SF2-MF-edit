@@ -6,8 +6,8 @@
 #pragma semicolon 1
 #pragma newdecls required
 
-#define SF2_FLASHLIGHT_WIDTH 768.0 // How wide the player's Flashlight should be in world units.
-#define SF2_FLASHLIGHT_BRIGHTNESS 1 // Intensity of the players' Flashlight.
+#define SF2_FLASHLIGHT_WIDTH 512.0 // How wide the player's Flashlight should be in world units.
+#define SF2_FLASHLIGHT_BRIGHTNESS 0 // Intensity of the players' Flashlight.
 #define SF2_FLASHLIGHT_DRAIN_RATE 0.12 // How long (in seconds) each bar on the player's Flashlight meter lasts.
 #define SF2_FLASHLIGHT_RECHARGE_RATE 0.1 // How long (in seconds) it takes each bar on the player's Flashlight meter to recharge.
 #define SF2_FLASHLIGHT_FLICKERAT 0.25 // The percentage of the Flashlight battery where the Flashlight will start to blink.

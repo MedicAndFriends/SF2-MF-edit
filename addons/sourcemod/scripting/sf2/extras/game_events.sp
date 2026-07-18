@@ -936,7 +936,7 @@ Action Event_PlayerDeath(Event event, const char[] name, bool dB)
 		ClientUpdateListeningFlags(client);
 
 		// Half-Zatoichi nerf code.
-		int katanaHealthGain = 25;
+		int katanaHealthGain = 5;
 		if (katanaHealthGain >= 0)
 		{
 			SF2_BasePlayer attackerClient = SF2_BasePlayer(GetClientOfUserId(attacker));

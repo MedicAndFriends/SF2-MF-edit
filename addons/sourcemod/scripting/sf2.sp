@@ -49,11 +49,11 @@ bool steamworks;
 
 public Plugin myinfo =
 {
-	name = "Slender Fortress M&F Edit",
-	author = "Edited by bruh.clippy aka cerealcan, 80s & hsjw based on SF:M by Mentrillum",
+	name = "Slender Fortress Modified",
+	author = "KitRifty, Kenzzer, Mentrillum, The Gaben",
 	description = "Based on the game Slender: The Eight Pages.",
 	version = PLUGIN_VERSION,
-	url = "https://discord.gg/TsQQUzEdp6"
+	url = "https://discord.gg/7Zz7RYTCC4"
 }
 
 enum struct MuteMode
@@ -2109,7 +2109,7 @@ static Action Timer_RoundMessages(Handle timer)
 	{
 		case 0:
 		{
-			CPrintToChatAll("{royalblue}== {violet}Slender Fortress M&F edit{royalblue} edited by {orange}bruh.clippy , 80s & hsjw{royalblue}==\n== current version {violet}%s{royalblue}==", PLUGIN_VERSION_DISPLAY);
+			CPrintToChatAll("{royalblue}== {violet}Slender Fortress{royalblue} coded by {hotpink}KitRifty & Kenzzer{royalblue}==\n== Modified by {deeppink}Mentrillum & The Gaben{royalblue}, current version {violet}%s{royalblue}==", PLUGIN_VERSION_DISPLAY);
 		}
 		case 1:
 		{

@@ -4597,6 +4597,32 @@ static CBaseEntity ProcessVision(SF2_ChaserEntity chaser, int &interruptConditio
 			chaser.SetInFOV(entity, true);
 		}
 
+		if ((state == STATE_IDLE || state == STATE_ALERT || state == STATE_CHASE) && data.GetVisionSenseData().CanSeeFlashlights(difficulty) && player.IsValid && player.UsingFlashlight)
+		{
+			SF2PointSpotlightEntity flashlight = SF2PointSpotlightEntity(ClientGetFlashlightEntity(player.index));
+			float flashlightPos[3], fov[3];
+			flashlight.End.GetAbsOrigin(flashlightPos);
+			flashlightDist = controller.GetDistanceFrom(flashlight.End.index);
+			if (flashlight.IsValid() && flashlightDist <= Pow(data.GetSearchRange(difficulty), 2.0))
+			{
+				trace = TR_TraceRayFilterEx(traceStartPos,
+				flashlightPos,
+				CONTENTS_SOLID | CONTENTS_MOVEABLE | CONTENTS_MIST | CONTENTS_MONSTERCLIP,
+				RayType_EndPoint,
+				TraceRayBossVisibility,
+				chaser.index);
+
+				SubtractVectors(flashlightPos, traceStartPos, fov);
+				GetVectorAngles(fov, fov);
+
+				if (!TR_DidHit(trace) && FloatAbs(AngleDiff(myEyeAng[1], fov[1])) <= (vision.GetFieldOfView() * 0.5))
+				{
+					chaser.SetIsVisible(player, true);
+					chaser.SetInFOV(player, true);
+				}
+				delete trace;
+			}
+		}
 
 		if (chaser.GetIsVisible(entity))
 		{
