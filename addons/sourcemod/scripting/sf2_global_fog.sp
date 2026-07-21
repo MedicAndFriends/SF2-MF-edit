@@ -3,8 +3,8 @@
 #include <sdktools>
 #include <sdkhooks>
 #include <tf2>
-#include <sourcemod>
 #include <cbasenpc>
+#include <tf2_stocks>
 
 static int g_bossFogEnt[MAXPLAYERS] = {INVALID_ENT_REFERENCE, ...};
 static int g_oldFogController[MAXPLAYERS] = {INVALID_ENT_REFERENCE, ...};
@@ -41,37 +41,35 @@ enum struct SF2GlobalFogInfo
 		this.SkyName[0] = '\0';
 	}
 
-	void Load(KeyValues kv)
+	void Load(SF2_ProfileObject kv)
 	{
 		this.Start = kv.GetFloat("start", this.Start);
 		this.End = kv.GetFloat("end", this.End);
 		this.MaxDensity = kv.GetFloat("density", this.MaxDensity);
-		this.FarZ = kv.GetNum("farz", this.FarZ);
+		this.FarZ = kv.GetInt("farz", this.FarZ);
 		kv.GetVector("direction", this.Direction, this.Direction);
-        this.Radial = kv.GetNum("radial", this.Radial) != 0;
+		this.Radial = kv.GetBool("radial", this.Radial);
 
-		GetProfileColorNoBacks(kv, "color_primary", this.ColorPrimary[0], this.ColorPrimary[1], this.ColorPrimary[2], this.ColorPrimary[3]);
-		GetProfileColorNoBacks(kv, "color_secondary", this.ColorSecondary[0], this.ColorSecondary[1], this.ColorSecondary[2], this.ColorSecondary[3]);
-        this.Blend = kv.GetNum("blend", this.Blend) != 0;
+		kv.GetColor("color_primary", this.ColorPrimary, this.ColorPrimary);
+		kv.GetColor("color_secondary", this.ColorSecondary, this.ColorSecondary);
+		this.Blend = kv.GetBool("blend", this.Blend);
 		kv.GetString("custom_sky_name", this.SkyName, sizeof(this.SkyName), this.SkyName);
 	}
 }
 
-// Huge thanks to CookieCat for some of this stuff
-
 int CreateFog(int client, int bossIndex)
 {
 	if (IsValidEntity(g_bossFogEnt[client]))
-    {
+	{
 		RemoveEntity(g_bossFogEnt[client]);
-    }
+	}
 
 	char profile[SF2_MAX_PROFILE_NAME_LENGTH];
 	SF2_GetBossName(bossIndex, profile, sizeof(profile));
 	SF2GlobalFogInfo fogData;
 	g_StringMap.GetArray(profile, fogData, sizeof(fogData));
 	g_bossFogEnt[client] = EntIndexToEntRef(CreateEntityByName("env_fog_controller"));
-    CBaseEntity fog = CBaseEntity(g_bossFogEnt[client]);
+	CBaseEntity fog = CBaseEntity(g_bossFogEnt[client]);
 
 	fog.KeyValue("targetname", profile);
 	fog.KeyValue("fogenable", "1");
@@ -162,9 +160,9 @@ public void OnPluginStart()
 public void OnClientDisconnect(int client)
 {
 	if (IsValidEntity(g_bossFogEnt[client]))
-    {
+	{
 		RemoveEntity(g_bossFogEnt[client]);
-    }
+	}
 	g_bossFogEnt[client] = INVALID_ENT_REFERENCE;
 	g_FogFadingOut[client] = false;
 }
@@ -189,7 +187,6 @@ public void SF2_OnBossAdded(int bossIndex)
 				fogController = GetEntPropEnt(i, Prop_Data, "m_hCtrl");
 				if (IsValidEntity(fogController) && EntIndexToEntRef(fogController) != g_bossFogEnt[i])
 				{
-					// Double checking.
 					char name[64];
 					GetEntPropString(fogController, Prop_Data, "m_iName", name, sizeof(name));
 					if (strcmp(name, profile) != 0)
@@ -198,9 +195,8 @@ public void SF2_OnBossAdded(int bossIndex)
 					}
 				}
 			}
-			if (TF2_GetClientTeam(i) == TFTeam_Red || SF2_IsClientInGhostMode(i) || SF2_IsClientProxy(i))
+			if (GetClientTeam(i) == TFTeam_Red || SF2_IsClientInGhostMode(i) || SF2_IsClientProxy(i))
 			{
-
 				CreateFog(i, bossIndex);
 				g_FogFadingOut[i] = false;
 				SetEntPropEnt(i, Prop_Data, "m_hCtrl", g_bossFogEnt[i]);
@@ -254,29 +250,28 @@ Action Event_PlayerSpawn(Handle event, const char[] name, bool dB)
 
 	if (IsValidEntity(g_bossFogEnt[client]))
 	{
-		if (TF2_GetClientTeam(client) == TFTeam_Red || SF2_IsClientInGhostMode(client) || SF2_IsClientProxy(client))
+		if (GetClientTeam(client) == TFTeam_Red || SF2_IsClientInGhostMode(client) || SF2_IsClientProxy(client))
 		{
 			SetEntPropEnt(client, Prop_Data, "m_hCtrl", g_bossFogEnt[client]);
 		}
-
 	}
 
 	return Plugin_Continue;
 }
 
-public void SF2_OnBossProfileLoaded(const char[] profile, KeyValues kv)
+public void SF2_OnBossProfileLoaded(const char[] profile, SF2_BaseBossProfile data)
 {
-	if (kv.JumpToKey("global_fog"))
+	SF2_ProfileObject fogSection = data.GetSection("global_fog");
+	if (fogSection != null)
 	{
 		SF2GlobalFogInfo fogData;
 		fogData.Init();
-		fogData.Load(kv);
+		fogData.Load(fogSection);
 		g_StringMap.SetArray(profile, fogData, sizeof(fogData));
-		kv.GoBack();
 	}
 }
 
-public void SF2_OnBossProfileUnloaded(const char[] profile)
+public void SF2_OnBossProfileUnloaded(const char[] profile, SF2_BaseBossProfile data)
 {
 	SF2GlobalFogInfo fogData;
 	if (g_StringMap.GetArray(profile, fogData, sizeof(fogData)))
